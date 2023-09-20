@@ -12,7 +12,7 @@ window.addEventListener('keydown', (event) => {
     key.classList.add('playing');
 });
 
-function removeTransition (event) {
+const removeTransition = (event) => {
     console.log(event);
     if(event.propertyName !== 'transition') return;
 }
