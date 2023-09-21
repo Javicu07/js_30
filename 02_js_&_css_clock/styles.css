@@ -48,3 +48,8 @@ html {
     transition: all 0.05s;
     transition-timing-function: cubic-bezier(0.1, 1.82, 0.65, 1);
   }
+
+  .second-hand {
+    height: 4px;
+    background: red;
+  }
