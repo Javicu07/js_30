@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function toggleActive(event) {
         if (event.propertyName.includes('flex')) {
-            this.classList.toggle('open-active')
+            this.classList.toggle('open-active');
         }
     }
 
