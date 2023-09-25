@@ -47,3 +47,13 @@
   comments.splice(index, 1);
 
   console.log(comments);
+
+  // With this other way we can do it the same, but the original array stay inmutable
+  /*
+  const newCommets = [
+    ...comments.slice(0, index),
+    ...comments.slice(index + 1)
+  ];
+
+  console.log(newCommets);
+  */
