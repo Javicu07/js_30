@@ -8,18 +8,19 @@ document.addEventListener('DOMContentLoaded', function () {
     ctx.lineJoin = 'round';
     ctx.lineCap = 'round';
     //ctx.lineWidth = 30;
+    ctx.globalCompositeOperation = 'multiply';
 
     let isDrawing = false;
     let lastX = 0;
     let lastY = 0;
     let hue = 0;
+    let direction = true;
 
     function draw(e) {
         if(!isDrawing) return; // stop function when the mouse is not down
         console.log(e);
         ctx.strokeStyle = `hsl(${hue}, 100%, 50%)`; 
         ctx.beginPath();
-        ctx.lineWidth = hue/6;
         // start from
         ctx.moveTo(lastX, lastY);
         // go to
@@ -28,6 +29,14 @@ document.addEventListener('DOMContentLoaded', function () {
         [lastX, lastY] = [e.offsetX, e.offsetY];
         hue++;
         if(hue >= 360) hue = 0;
+        if(ctx.lineWidth >= 60 || ctx.lineWidth <= 1) {
+            direction = !direction;
+        }
+        if(direction) {
+            ctx.lineWidth++;
+        } else {
+            ctx.lineWidth--;
+        }
     }
 
     canvas.addEventListener('mousemove', draw);
