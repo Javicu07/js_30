@@ -16,10 +16,12 @@ function debounce(func, wait = 20, immediate = true) {
 const sliderImages = document.querySelectorAll('.slide-in');
 
 function checkSlide(e) {
-    console.count(e);
+    //console.count(e);
     sliderImages.forEach(sliderImage => {
+        //console.log(sliderImage);
         // half way through the image
         const slideInAt = (window.scrollY + window.innerHeight) - sliderImage.height / 2;
+        //console.log(slideInAt);
         // bottom of the image
         const imageBottom = sliderImage.offsetTop + sliderImage.height;
 
