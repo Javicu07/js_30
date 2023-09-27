@@ -1,20 +1,30 @@
 // start with strings, numbers and booleans
-let age = 100;
-let age2 = age;
-console.log(age, age2); // 100, 100
-age = 200;
-console.log(age, age2); // 200, 100
+//let age = 100;
+//let age2 = age;
+//console.log(age, age2); // 100, 100
+//age = 200;
+//console.log(age, age2); // 200, 100
+//
+//let nameW = 'wes';
+//let nameW2 = nameW;
+//console.log(nameW, nameW2); // wes, wes
+//nameW = 'wesley'
+//console.log(nameW, nameW2); // wesley, wes
 
-let nameW = 'wes';
-let nameW2 = nameW;
-console.log(nameW, nameW2); // wes, wes
-nameW = 'wesley'
-console.log(nameW, nameW2); // wesley, wes
 
 // Let's say we have an array
 const players = ['Wes', 'Sarah', 'Ryan', 'Poppy'];
+
 // and we want to make a copy of it.
+const team = players;
+console.log(players, team); // ['Wes', 'Sarah', 'Ryan', 'Poppy']
+                            // ['Wes', 'Sarah', 'Ryan', 'Poppy']
+
 // You might think we can just do something like this:
+team[3] = 'Lux';
+console.log(players, team); // ['Wes', 'Sarah', 'Ryan', 'Lux']
+                            // ['Wes', 'Sarah', 'Ryan', 'Lux'] 
+
 // however what happens when we update that array?
 // now here is the problem!
 // oh no - we have edited the original array too!
