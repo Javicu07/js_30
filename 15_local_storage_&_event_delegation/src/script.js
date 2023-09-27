@@ -9,6 +9,19 @@ function addItem(e) {
         text,
         done: false
     }
+    items.push(item);
+    populateList(items, itemsList);
+    this.reset();
+}
+
+function populateList(plates = [], platesList) {
+    platesList.innerHTML = plates.map((plate, i) => {
+        return `
+            <li>
+                <label for="">${plate.text}</label>
+            </li>
+        `
+    }).join('');
 }
 
 addItems.addEventListener('submit', addItem)
