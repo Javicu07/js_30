@@ -1,3 +1,5 @@
+//document.addEventListener('DOMContentLoaded', () => {
+
 const msg = new SpeechSynthesisUtterance();
 let voices = [];
 const voicesDropdown = document.querySelector('[name="voice"]');
@@ -14,4 +16,29 @@ function populateVoices() {
         .join('');
 }
 
+function setVoice() {
+    msg.voice = voices.find(voice => voice.name === this.value);
+    toggle();
+}
+
+function toggle(startOver = true) {
+    speechSynthesis.cancel();
+    if (startOver) {
+        speechSynthesis.speak(msg);
+    }
+}
+
+function setOption() {
+    console.log(this.name, this.value);
+    msg[this.name] = this.value;
+    toggle();
+}
+
 speechSynthesis.addEventListener('voiceschanged', populateVoices);
+voicesDropdown.addEventListener('change', setVoice);
+
+options.forEach(option => option.addEventListener('change', setOption));
+speakButton.addEventListener('click', toggle);
+stopButton.addEventListener('click', () => toggle(false));
+
+//});
